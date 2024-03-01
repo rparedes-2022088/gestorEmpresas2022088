@@ -69,6 +69,13 @@ export const updateAdmin = async(req, res)=>{
     try{
         let { id } = req.params
         let data = req.body
+        let updatedAdmin = await User.findOneAndUpdate(
+            {_id: id},
+            data,
+            {new: true}
+        )
+        if(!updatedAdmin) return res.status(404).send({message: 'User not found, not updated'})
+        return res.send({message: 'User updated succesfully', updatedAdmin})
     }catch(err){
         console.error(err)
         return res.status(500).send()
