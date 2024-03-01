@@ -14,7 +14,7 @@ const empresaSchema = Schema({
         required: true
     },
     trajectory: {
-        type: Date,
+        type: Number,
         required: true
     },
     categorie: {
