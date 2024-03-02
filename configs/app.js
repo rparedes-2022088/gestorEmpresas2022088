@@ -6,6 +6,8 @@ import helmet from 'helmet'
 import cors from 'cors'
 import { config } from 'dotenv'
 import categorieRoutes from '../src/categorie/categorie.routes.js'
+import userRoutes from '../src/user/user.routes.js'
+import empresaRoutes from '../src/empresa/empresa.routes.js'
 
 const app = express()
 config()
@@ -17,7 +19,9 @@ app.use(cors())
 app.use(helmet())
 app.use(morgan('dev'))
 
-app.use(categorieRoutes)
+app.use('/categorias', categorieRoutes)
+app.use('/usuarios', userRoutes)
+app.use('/empresas', empresaRoutes)
 
 export const initServer = ()=>{
     app.listen(port)

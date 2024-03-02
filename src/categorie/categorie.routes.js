@@ -6,8 +6,8 @@ import { newCategorie, deleteCategorie, updateCategorie } from './categorie.cont
 
 const api = Router()
 
-api.post('/newCategorie', newCategorie)
-api.delete('/deleteCategorie', deleteCategorie)
-api.put('/updateCategorie', updateCategorie)
+api.post('/newCategorie', validateJwt, newCategorie)
+api.delete('/deleteCategorie/:id', validateJwt, deleteCategorie)
+api.put('/updateCategorie/:id', validateJwt, updateCategorie)
 
 export default api

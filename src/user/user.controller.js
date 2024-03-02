@@ -69,6 +69,7 @@ export const updateAdmin = async(req, res)=>{
     try{
         let { id } = req.params
         let data = req.body
+        data.password = await encrypt(data.password)
         let updatedAdmin = await User.findOneAndUpdate(
             {_id: id},
             data,
