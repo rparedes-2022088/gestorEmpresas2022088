@@ -47,10 +47,10 @@ export const viewByCategorieAZ = async(req, res)=>{
     try{
         let orderedCompanies = await Empresa.find().populate('categorie',['categoria'])
         orderedCompanies.sort((a, b) => {
-            if (a.categorie.categoria < b.categorie.categoria) return -1;
-            if (a.categorie.categoria > b.categorie.categoria) return 1;
-            return 0;
-        });
+            if (a.categorie.categoria < b.categorie.categoria) return -1
+            if (a.categorie.categoria > b.categorie.categoria) return 1
+            return 0
+        })
         return res.send({orderedCompanies})
     }catch(err){
         console.error(err)
@@ -62,10 +62,10 @@ export const viewByCategorieZA = async(req, res)=>{
     try{
         let orderedCompanies = await Empresa.find().populate('categorie',['categoria'])
         orderedCompanies.sort((a, b) => {
-            if (a.categorie.categoria < b.categorie.categoria) return 1;
-            if (a.categorie.categoria > b.categorie.categoria) return -1;
-            return 0;
-        });
+            if (a.categorie.categoria < b.categorie.categoria) return 1
+            if (a.categorie.categoria > b.categorie.categoria) return -1
+            return 0
+        })
         return res.send({orderedCompanies})
     }catch(err){
         console.error(err)
